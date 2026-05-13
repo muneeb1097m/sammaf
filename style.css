@@ -409,36 +409,27 @@ nav.scrolled .hamburger span {
 
 .trust-strip {
     display: flex;
-    flex-wrap: nowrap;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 25px;
     align-items: center;
     color: var(--white);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     opacity: 0.8;
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 5px;
-}
-
-.trust-strip::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
 }
 
 .trust-item {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
+    gap: 10px;
+    padding: 8px 16px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 100px;
-    white-space: nowrap;
 }
 
 .trust-item span.icon {
     color: var(--secondary-teal);
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* Stats Bar */
@@ -700,45 +691,76 @@ nav.scrolled .hamburger span {
 }
 
 .step-card {
-    text-align: center;
+    text-align: left;
     position: relative;
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(15px);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
-    padding: 50px 30px;
+    border-radius: 20px;
+    padding: 50px 30px 40px 30px;
     transition: var(--transition);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 260px;
+}
+
+.step-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 3px;
+    background: var(--secondary-teal);
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-card:hover::before {
+    width: 100%;
 }
 
 .step-card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(0, 163, 137, 0.3);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-8px);
     box-shadow: 0 20px 40px -10px rgba(0, 163, 137, 0.15);
 }
 
 .step-number {
+    position: absolute;
+    top: -10px;
+    right: 15px;
     font-family: var(--heading-font);
-    font-size: 80px;
-    font-weight: 700;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
-    color: transparent;
-    margin-bottom: 20px;
-    display: inline-block;
-    transition: var(--transition);
+    font-size: 160px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.02);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
+    margin: 0;
+    line-height: 1;
+    z-index: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
 }
 
 .step-card:hover .step-number {
-    color: var(--secondary-teal);
-    -webkit-text-stroke: 1px var(--secondary-teal);
-    opacity: 0.9;
-    transform: scale(1.1);
-    text-shadow: 0 0 25px rgba(0, 163, 137, 0.5);
+    color: rgba(0, 163, 137, 0.04);
+    -webkit-text-stroke: 1px rgba(0, 163, 137, 0.1);
+    transform: scale(1.05) translate(-10px, 10px);
 }
 
 .step-card h4 {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-size: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.step-card p {
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    opacity: 0.8;
+    line-height: 1.7;
 }
 
 /* Intermediate CTA */
@@ -839,7 +861,8 @@ nav.scrolled .hamburger span {
 
 .client-info {
     font-weight: 600;
-    color: var(--primary-navy);
+    color: var(--secondary-teal); /* Changed from primary-navy to be readable */
+    opacity: 0.9;
 }
 
 /* Community */
@@ -1042,7 +1065,8 @@ footer::before {
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
+        transform: translateX(100%);
         height: 100vh;
         width: 100%;
         background: var(--dark-navy);
@@ -1052,7 +1076,7 @@ footer::before {
         transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 999;
     }
-    .nav-links.active { right: 0; }
+    .nav-links.active { transform: translateX(0); right: 0; }
     .nav-links li { margin: 15px 0; }
     .nav-links a { color: var(--white); font-size: 24px; }
     .hamburger { display: flex; z-index: 1001; }
