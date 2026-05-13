@@ -110,6 +110,12 @@ html {
     scroll-behavior: smooth;
 }
 
+.site-wrapper {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
 body {
     width: 100%;
     position: relative;
@@ -1077,6 +1083,17 @@ footer::before {
 }
 
 @media (max-width: 768px) {
+    nav {
+        width: 95%;
+        padding: 12px 20px;
+    }
+    
+    .logo img {
+        height: 35px;
+        max-width: 200px;
+        object-fit: contain;
+    }
+
     section { padding: 60px 0; }
     .hero { text-align: center; min-height: 80vh; }
     .hero .container { grid-template-columns: 1fr; }
