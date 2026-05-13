@@ -1092,8 +1092,16 @@ footer::before {
 
 @media (max-width: 768px) {
     nav {
-        width: 95%;
-        padding: 12px 20px;
+        width: 90%;
+        left: 5%;
+        transform: none;
+        top: 15px;
+        padding: 10px 15px;
+    }
+    
+    nav .container {
+        width: 100%;
+        max-width: 100%;
     }
     
     .logo img {
