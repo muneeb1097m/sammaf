@@ -111,14 +111,10 @@ html {
     overflow-x: hidden;
 }
 
-.site-wrapper {
-    width: 100%;
-    position: relative;
-}
-
 body {
     width: 100%;
     position: relative;
+    overflow-x: hidden;
     font-family: var(--body-font);
     color: var(--text-grey);
     line-height: 1.6;
@@ -1092,23 +1088,26 @@ footer::before {
 
 @media (max-width: 768px) {
     nav {
-        width: 90%;
-        left: 5%;
-        transform: none;
-        top: 15px;
-        padding: 10px 15px;
+        width: 90% !important;
+        left: 5% !important;
+        transform: none !important;
+        top: 15px !important;
+        padding: 8px 15px !important;
+        right: auto !important;
     }
     
     nav .container {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
     }
     
     .logo img {
-        height: 35px;
-        max-width: 200px;
-        object-fit: contain;
+        height: 28px !important;
+        width: auto !important;
     }
+
+    .mesh-blob { display: none !important; }
 
     section { padding: 60px 0; }
     .hero { text-align: center; min-height: 80vh; }
