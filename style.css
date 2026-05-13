@@ -1072,7 +1072,14 @@ footer::before {
     .nav-links.active { transform: translateX(0); right: 0; }
     .nav-links li { margin: 15px 0; }
     .nav-links a { color: var(--white); font-size: 24px; }
-    .hamburger { display: flex; z-index: 1001; }
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
     
     .hamburger span { background-color: var(--white); }
 
