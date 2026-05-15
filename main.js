@@ -103,4 +103,36 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // 7. Custom Select Dropdown Logic
+    const customSelect = document.getElementById('industry-select');
+    if (customSelect) {
+        const trigger = customSelect.querySelector('.select-trigger');
+        const options = customSelect.querySelectorAll('.option');
+        const input = document.getElementById('industry-input');
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            customSelect.classList.toggle('active');
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const value = option.getAttribute('data-value');
+                const text = option.innerText;
+                
+                trigger.querySelector('span').innerText = text;
+                input.value = value;
+                
+                options.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                
+                customSelect.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            customSelect.classList.remove('active');
+        });
+    }
+
 });
