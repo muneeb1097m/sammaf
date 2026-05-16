@@ -52,7 +52,7 @@
     transition: var(--transition);
     border-radius: 24px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .glass-card::before {
@@ -126,8 +126,8 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: clamp(64px, 10vw, 92px);
-    line-height: 1.0;
+    font-size: clamp(60px, 9vw, 86px);
+    line-height: 1.1;
     margin-bottom: 32px;
     font-weight: 900;
     color: var(--white);
@@ -142,6 +142,7 @@ h4 { font-size: 24px; color: var(--white); margin-bottom: 15px; }
 p {
     margin-bottom: 1.5rem;
     color: var(--text-grey);
+    text-align: justify;
 }
 
 .text-white { color: var(--white); }
@@ -166,6 +167,12 @@ p {
 section {
     padding: 100px 0;
 }
+
+#ecosystem { padding-bottom: 40px; }
+#testimonials { padding-top: 40px; }
+
+.final-cta { padding-bottom: 40px; }
+#contact { padding-top: 40px !important; }
 
 .container {
     max-width: var(--container-width);
@@ -349,7 +356,7 @@ nav.scrolled .hamburger span {
     display: flex;
     align-items: center;
     padding-top: 180px; /* Increased to push content down */
-    padding-bottom: 140px; /* Increased padding to clear the stats bar overlap */
+    padding-bottom: 60px; /* Reduced to remove extra spacing below trust badges */
     overflow: hidden;
     background-color: var(--dark-navy);
 }
@@ -384,14 +391,11 @@ nav.scrolled .hamburger span {
 .hero .container {
     position: relative;
     z-index: 3;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 50px;
-    align-items: center;
+    text-align: left;
 }
 
 .hero-content {
-    max-width: 700px;
+    max-width: 1100px;
 }
 
 .hero-content h1 {
@@ -408,28 +412,30 @@ nav.scrolled .hamburger span {
 .hero-btns {
     display: flex;
     gap: 20px;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    justify-content: flex-start;
 }
 
 .trust-strip {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 12px;
     align-items: center;
     color: var(--white);
     font-size: 13px;
     font-weight: 500;
     opacity: 0.8;
+    justify-content: flex-start;
 }
 
 .trust-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 20px;
+    padding: 8px 12px; /* Reduced for single-line fit */
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
-    font-size: 14px;
+    font-size: 13px; /* Slightly smaller for single-line fit */
 }
 
 .trust-item svg {
@@ -450,7 +456,7 @@ nav.scrolled .hamburger span {
 .stats-bar {
     background: transparent;
     padding: 0;
-    margin-top: -60px;
+    margin-top: 40px; /* Removed negative margin to create spacing */
     position: relative;
     z-index: 10;
 }
@@ -484,6 +490,64 @@ nav.scrolled .hamburger span {
 }
 
 /* Problem Section */
+.problem-pointers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.pointer-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pointer-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-teal);
+    transition: var(--transition);
+}
+
+.pointer-item:hover .pointer-icon {
+    background: rgba(0, 163, 137, 0.1);
+    transform: translateY(-5px);
+}
+
+.pointer-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.pointer-item span {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.pointer-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 991px) {
+    .problem-pointers {
+        gap: 20px;
+    }
+    .pointer-divider {
+        display: none;
+    }
+}
+
 .problem-grid {
     grid-template-columns: repeat(3, 1fr);
     margin-top: 50px;
@@ -497,6 +561,7 @@ nav.scrolled .hamburger span {
     border-left: 4px solid var(--secondary-teal);
     transition: var(--transition);
     border-radius: 24px;
+    text-align: center; /* Centered for consistency */
 }
 
 .pain-card:hover {
@@ -507,7 +572,7 @@ nav.scrolled .hamburger span {
     margin-bottom: 25px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center; /* Centered icon */
     height: 60px;
     font-size: 48px;
     color: var(--secondary-teal);
@@ -525,7 +590,7 @@ nav.scrolled .hamburger span {
 }
 
 .pain-card p {
-    text-align: left;
+    text-align: center;
 }
 
 /* Services */
@@ -547,6 +612,7 @@ nav.scrolled .hamburger span {
     padding: 40px;
     border-radius: 24px;
     transition: var(--transition);
+    text-align: center; /* Centered for better balance */
 }
 
 .service-card:hover {
@@ -567,7 +633,7 @@ nav.scrolled .hamburger span {
 }
 
 .service-card p {
-    text-align: left;
+    text-align: justify;
 }
 
 /* Ecosystem Map */
@@ -779,11 +845,12 @@ nav.scrolled .hamburger span {
 }
 
 .tab-btn {
-    padding: 14px 28px;
+    padding: 16px 36px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     font-family: var(--body-font);
     font-weight: 600;
+    font-size: 18px; /* Increased for readability */
     color: var(--white);
     cursor: pointer;
     transition: var(--transition);
@@ -964,13 +1031,13 @@ a[href="#"]:hover,
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 20px;
-    padding: 50px 30px 40px 30px;
+    padding: 30px 25px; /* Reduced from 50px 30px 40px 30px */
     transition: var(--transition);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    min-height: 260px;
+    justify-content: center; /* Changed from flex-end */
+    min-height: 160px; /* Reduced from 260px */
 }
 
 .step-card::before {
@@ -1544,6 +1611,7 @@ footer::before {
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 100;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    padding: 10px 0;
 }
 
 .custom-select.active .select-options {
