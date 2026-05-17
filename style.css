@@ -494,8 +494,8 @@ nav.scrolled .hamburger span {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    margin: 50px 0;
+    gap: 24px;
+    margin: 40px 0;
     flex-wrap: wrap;
 }
 
@@ -1709,5 +1709,66 @@ footer::before {
     .software-logos-container {
         gap: 30px;
         padding: 30px !important;
+    }
+}
+
+/* ==========================================
+   CONTACT FORM MOBILE & TABLET RESPONSIVENESS
+   ========================================== */
+@media (max-width: 1024px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr 1.2fr;
+        gap: 40px !important;
+        padding: 40px !important;
+    }
+    .contact-info h2 {
+        font-size: 36px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        padding: 32px 24px !important;
+    }
+    .contact-info {
+        text-align: center;
+        width: 100%;
+    }
+    .contact-info h2 {
+        font-size: 32px !important;
+        line-height: 1.2 !important;
+    }
+    .contact-details {
+        margin-top: 30px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .detail-item {
+        margin-bottom: 0 !important;
+        text-align: center;
+    }
+    .detail-item strong {
+        margin-bottom: 2px !important;
+    }
+    .contact-form {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-wrapper {
+        padding: 24px 16px !important;
+        gap: 30px !important;
+        border-radius: 16px !important;
+    }
+    .contact-info h2 {
+        font-size: 26px !important;
+    }
+    .detail-item {
+        font-size: 16px !important;
     }
 }
