@@ -107,11 +107,14 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
     position: relative;
     overflow-x: hidden;
+    width: 100%;
     font-family: var(--body-font);
     color: var(--text-grey);
     line-height: 1.6;
@@ -1471,8 +1474,25 @@ footer::before {
     .hero-btns .btn { width: 100%; }
 
     .stats-bar { margin-top: -60px; }
-    .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-    .stat-item h3 { font-size: 32px; }
+    .stats-grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px; 
+        padding: 24px 16px; 
+        border-radius: 24px; 
+    }
+    .stat-item h3 { font-size: 26px; }
+    .stat-item p { font-size: 11px; }
+
+    .trust-strip {
+        justify-content: center !important;
+        gap: 10px !important;
+    }
+    .trust-item {
+        font-size: 11px !important;
+        padding: 6px 10px !important;
+        justify-content: center;
+        width: auto;
+    }
 
     .problem-grid, .services-grid, .why-grid, .steps-grid, .testimonials-grid, .community-list {
         grid-template-columns: 1fr;
