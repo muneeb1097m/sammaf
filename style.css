@@ -145,6 +145,14 @@ p {
     text-align: justify;
 }
 
+/* Center-align paragraphs in centered container elements (like section headers/descriptions) */
+div[style*="text-align: center"] > p,
+div[style*="text-align: center"] p,
+.final-cta p,
+.stat-item p {
+    text-align: center !important;
+}
+
 .text-white { color: var(--white); }
 .text-teal { color: var(--secondary-teal); }
 .text-gold { color: var(--accent-gold); }
@@ -356,7 +364,7 @@ nav.scrolled .hamburger span {
     display: flex;
     align-items: center;
     padding-top: 180px; /* Increased to push content down */
-    padding-bottom: 60px; /* Reduced to remove extra spacing below trust badges */
+    padding-bottom: 140px; /* Increased to create space for the overlapping stats bar */
     overflow: hidden;
     background-color: var(--dark-navy);
 }
@@ -456,7 +464,7 @@ nav.scrolled .hamburger span {
 .stats-bar {
     background: transparent;
     padding: 0;
-    margin-top: 40px; /* Removed negative margin to create spacing */
+    margin-top: -80px; /* Overlaps the hero ending line perfectly */
     position: relative;
     z-index: 10;
 }
@@ -633,7 +641,7 @@ nav.scrolled .hamburger span {
 }
 
 .service-card p {
-    text-align: justify;
+    text-align: left;
 }
 
 /* Ecosystem Map */
@@ -1449,7 +1457,7 @@ footer::before {
     .mesh-blob { display: none !important; }
 
     section { padding: 60px 0; }
-    .hero { text-align: center; min-height: 80vh; }
+    .hero { text-align: center; min-height: 80vh; padding-top: 140px; padding-bottom: 100px; }
     .hero .container { grid-template-columns: 1fr; }
     .hero-btns { flex-direction: column; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -1462,6 +1470,7 @@ footer::before {
     .hero-btns { flex-direction: column; width: 100%; }
     .hero-btns .btn { width: 100%; }
 
+    .stats-bar { margin-top: -60px; }
     .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
     .stat-item h3 { font-size: 32px; }
 
