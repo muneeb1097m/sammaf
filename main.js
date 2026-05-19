@@ -135,4 +135,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 8. Testimonials Slider Logic (Mobile view)
+    const grid = document.querySelector('.testimonials-grid');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+
+    if (grid && prevBtn && nextBtn && dots.length > 0) {
+        const updateDots = () => {
+            const index = Math.round(grid.scrollLeft / grid.offsetWidth);
+            dots.forEach((dot, idx) => {
+                if (idx === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        };
+
+        grid.addEventListener('scroll', updateDots);
+
+        prevBtn.addEventListener('click', () => {
+            grid.scrollBy({ left: -grid.offsetWidth, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            grid.scrollBy({ left: grid.offsetWidth, behavior: 'smooth' });
+        });
+        
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                grid.scrollTo({ left: idx * grid.offsetWidth, behavior: 'smooth' });
+            });
+        });
+    }
+
 });
