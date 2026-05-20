@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pageUrl: window.location.href
             };
 
-            const webhookUrl = 'https://services.leadconnectorhq.com/hooks/ILfm9Yxfly5CRRQ1Dqct/webhook-trigger/65f10b14-38de-4a16-85d8-7511afb26b01';
+            const webhookUrl = 'https://services.leadconnectorhq.com/hooks/ILfm9Yxfly5CRRQ1Dqct/webhook-trigger/90a89095-3105-428b-b716-e4924eb29d81';
 
             try {
                 const response = await fetch(webhookUrl, {
